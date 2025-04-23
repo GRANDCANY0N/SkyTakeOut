@@ -1,4 +1,4 @@
-package com.example.sky.pojo.entity;
+package com.sky.entity;
 /**
  * @author Canyon
  */

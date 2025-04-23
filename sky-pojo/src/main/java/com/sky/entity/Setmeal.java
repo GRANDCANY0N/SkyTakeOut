@@ -1,15 +1,16 @@
-package com.example.sky.pojo.entity;
-
+package com.sky.entity;
 /**
  * @author Canyon
  */
-public class Category {
+public class Setmeal {
 
   private long id;
-  private long type;
+  private long categoryId;
   private String name;
-  private long sort;
+  private double price;
   private long status;
+  private String description;
+  private String image;
   private java.sql.Timestamp createTime;
   private java.sql.Timestamp updateTime;
   private long createUser;
@@ -25,12 +26,12 @@ public class Category {
   }
 
 
-  public long getType() {
-    return type;
+  public long getCategoryId() {
+    return categoryId;
   }
 
-  public void setType(long type) {
-    this.type = type;
+  public void setCategoryId(long categoryId) {
+    this.categoryId = categoryId;
   }
 
 
@@ -43,12 +44,12 @@ public class Category {
   }
 
 
-  public long getSort() {
-    return sort;
+  public double getPrice() {
+    return price;
   }
 
-  public void setSort(long sort) {
-    this.sort = sort;
+  public void setPrice(double price) {
+    this.price = price;
   }
 
 
@@ -58,6 +59,24 @@ public class Category {
 
   public void setStatus(long status) {
     this.status = status;
+  }
+
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
   }
 
 
