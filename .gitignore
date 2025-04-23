@@ -1,33 +1,71 @@
-HELP.md
+# ----------------------------
+# Maven
+# ----------------------------
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/
+*/target/
+**/target/
 
-### STS ###
-.apt_generated
+# 如果你构建时把 test 输出也加入 target/test-classes，也统一忽略
+**/test-classes/
+
+# ----------------------------
+# IDEA
+# ----------------------------
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# ----------------------------
+# VSCode
+# ----------------------------
+.vscode/
+
+# ----------------------------
+# Eclipse / STS
+# ----------------------------
 .classpath
-.factorypath
 .project
-.settings
+.settings/
+.apt_generated/
+.factorypath
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
-*.iws
-*.iml
-*.ipr
-
-### NetBeans ###
+# ----------------------------
+# NetBeans
+# ----------------------------
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
-!**/src/main/**/build/
-!**/src/test/**/build/
+/build/
 
-### VS Code ###
-.vscode/
+# ----------------------------
+# OS Specific
+# ----------------------------
+.DS_Store
+Thumbs.db
+
+# ----------------------------
+# Maven Wrapper
+# ----------------------------
+.mvn/wrapper/maven-wrapper.jar
+mvnw
+mvnw.cmd
+
+# ----------------------------
+# Logs
+# ----------------------------
+*.log
+
+# ----------------------------
+# Application YAML/Properties (Optional)
+# ----------------------------
+# 如果你不想把配置文件提交到 Git，可打开以下注释
+#application.yml
+#application-dev.yml
+#application-prod.yml
+#application.properties
