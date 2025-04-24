@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sky.exception.AccountLockedException;
-
+import org.springframework.util.DigestUtils;
 
 
 @Service
@@ -35,6 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         if(employee == null){
             throw new AccountNotFoundException(MessageConstant.ACCOUNT_NOT_FOUND);
         }
+        //md5加密 过时
+        password = DigestUtils.md5DigestAsHex(password.getBytes());
+
         if(!(employee.getPassword().equals(password))){
             throw new PasswordErrorException(MessageConstant.PASSWORD_ERROR);
         }

@@ -1,109 +1,52 @@
 package com.sky.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 /**
- * @author Canyon
+ * 购物车
  */
-public class ShoppingCart {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ShoppingCart implements Serializable {
 
-  private long id;
-  private String name;
-  private String image;
-  private long userId;
-  private long dishId;
-  private long setmealId;
-  private String dishFlavor;
-  private long number;
-  private double amount;
-  private java.sql.Timestamp createTime;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
+    private Long id;
 
-  public long getId() {
-    return id;
-  }
+    //名称
+    private String name;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    //用户id
+    private Long userId;
 
+    //菜品id
+    private Long dishId;
 
-  public String getName() {
-    return name;
-  }
+    //套餐id
+    private Long setmealId;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    //口味
+    private String dishFlavor;
 
+    //数量
+    private Integer number;
 
-  public String getImage() {
-    return image;
-  }
+    //金额
+    private BigDecimal amount;
 
-  public void setImage(String image) {
-    this.image = image;
-  }
+    //图片
+    private String image;
 
-
-  public long getUserId() {
-    return userId;
-  }
-
-  public void setUserId(long userId) {
-    this.userId = userId;
-  }
-
-
-  public long getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(long dishId) {
-    this.dishId = dishId;
-  }
-
-
-  public long getSetmealId() {
-    return setmealId;
-  }
-
-  public void setSetmealId(long setmealId) {
-    this.setmealId = setmealId;
-  }
-
-
-  public String getDishFlavor() {
-    return dishFlavor;
-  }
-
-  public void setDishFlavor(String dishFlavor) {
-    this.dishFlavor = dishFlavor;
-  }
-
-
-  public long getNumber() {
-    return number;
-  }
-
-  public void setNumber(long number) {
-    this.number = number;
-  }
-
-
-  public double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
-
-  public java.sql.Timestamp getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(java.sql.Timestamp createTime) {
-    this.createTime = createTime;
-  }
-
+    private LocalDateTime createTime;
 }

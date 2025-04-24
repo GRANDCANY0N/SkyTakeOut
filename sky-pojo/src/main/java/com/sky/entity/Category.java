@@ -1,99 +1,46 @@
 package com.sky.entity;
 
-/**
- * @author Canyon
- */
-public class Category {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-  private long id;
-  private long type;
-  private String name;
-  private long sort;
-  private long status;
-  private java.sql.Timestamp createTime;
-  private java.sql.Timestamp updateTime;
-  private long createUser;
-  private long updateUser;
+import java.io.Serial;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Category implements Serializable {
 
-  public long getId() {
-    return id;
-  }
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    private Long id;
 
+    //类型: 1菜品分类 2套餐分类
+    private Integer type;
 
-  public long getType() {
-    return type;
-  }
+    //分类名称
+    private String name;
 
-  public void setType(long type) {
-    this.type = type;
-  }
+    //顺序
+    private Integer sort;
 
+    //分类状态 0标识禁用 1表示启用
+    private Integer status;
 
-  public String getName() {
-    return name;
-  }
+    //创建时间
+    private LocalDateTime createTime;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    //更新时间
+    private LocalDateTime updateTime;
 
+    //创建人
+    private Long createUser;
 
-  public long getSort() {
-    return sort;
-  }
-
-  public void setSort(long sort) {
-    this.sort = sort;
-  }
-
-
-  public long getStatus() {
-    return status;
-  }
-
-  public void setStatus(long status) {
-    this.status = status;
-  }
-
-
-  public java.sql.Timestamp getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(java.sql.Timestamp createTime) {
-    this.createTime = createTime;
-  }
-
-
-  public java.sql.Timestamp getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(java.sql.Timestamp updateTime) {
-    this.updateTime = updateTime;
-  }
-
-
-  public long getCreateUser() {
-    return createUser;
-  }
-
-  public void setCreateUser(long createUser) {
-    this.createUser = createUser;
-  }
-
-
-  public long getUpdateUser() {
-    return updateUser;
-  }
-
-  public void setUpdateUser(long updateUser) {
-    this.updateUser = updateUser;
-  }
-
+    //修改人
+    private Long updateUser;
 }

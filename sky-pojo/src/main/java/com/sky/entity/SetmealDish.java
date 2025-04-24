@@ -1,69 +1,40 @@
 package com.sky.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.math.BigDecimal;
+
 /**
- * @author Canyon
+ * 套餐菜品关系
  */
-public class SetmealDish {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class SetmealDish implements Serializable {
 
-  private long id;
-  private long setmealId;
-  private long dishId;
-  private String name;
-  private double price;
-  private long copies;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
+    private Long id;
 
-  public long getId() {
-    return id;
-  }
+    //套餐id
+    private Long setmealId;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    //菜品id
+    private Long dishId;
 
+    //菜品名称 （冗余字段）
+    private String name;
 
-  public long getSetmealId() {
-    return setmealId;
-  }
+    //菜品原价
+    private BigDecimal price;
 
-  public void setSetmealId(long setmealId) {
-    this.setmealId = setmealId;
-  }
-
-
-  public long getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(long dishId) {
-    this.dishId = dishId;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public double getPrice() {
-    return price;
-  }
-
-  public void setPrice(double price) {
-    this.price = price;
-  }
-
-
-  public long getCopies() {
-    return copies;
-  }
-
-  public void setCopies(long copies) {
-    this.copies = copies;
-  }
-
+    //份数
+    private Integer copies;
 }

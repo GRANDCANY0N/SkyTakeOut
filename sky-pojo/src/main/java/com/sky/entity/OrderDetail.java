@@ -1,98 +1,49 @@
 package com.sky.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.math.BigDecimal;
+
 /**
- * @author Canyon
+ * 订单明细
  */
-public class OrderDetail {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class OrderDetail implements Serializable {
 
-  private long id;
-  private String name;
-  private String image;
-  private long orderId;
-  private long dishId;
-  private long setmealId;
-  private String dishFlavor;
-  private long number;
-  private double amount;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
+    private Long id;
 
-  public long getId() {
-    return id;
-  }
+    //名称
+    private String name;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    //订单id
+    private Long orderId;
 
+    //菜品id
+    private Long dishId;
 
-  public String getName() {
-    return name;
-  }
+    //套餐id
+    private Long setmealId;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    //口味
+    private String dishFlavor;
 
+    //数量
+    private Integer number;
 
-  public String getImage() {
-    return image;
-  }
+    //金额
+    private BigDecimal amount;
 
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-
-  public long getOrderId() {
-    return orderId;
-  }
-
-  public void setOrderId(long orderId) {
-    this.orderId = orderId;
-  }
-
-
-  public long getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(long dishId) {
-    this.dishId = dishId;
-  }
-
-
-  public long getSetmealId() {
-    return setmealId;
-  }
-
-  public void setSetmealId(long setmealId) {
-    this.setmealId = setmealId;
-  }
-
-
-  public String getDishFlavor() {
-    return dishFlavor;
-  }
-
-  public void setDishFlavor(String dishFlavor) {
-    this.dishFlavor = dishFlavor;
-  }
-
-
-  public long getNumber() {
-    return number;
-  }
-
-  public void setNumber(long number) {
-    this.number = number;
-  }
-
-
-  public double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
+    //图片
+    private String image;
 }

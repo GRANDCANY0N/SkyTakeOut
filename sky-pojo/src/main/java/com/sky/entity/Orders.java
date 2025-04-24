@@ -1,248 +1,112 @@
 package com.sky.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 /**
- * @author Canyon
+ * 订单
  */
-public class Orders {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Orders implements Serializable {
 
-  private long id;
-  private String number;
-  private long status;
-  private long userId;
-  private long addressBookId;
-  private java.sql.Timestamp orderTime;
-  private java.sql.Timestamp checkoutTime;
-  private long payMethod;
-  private long payStatus;
-  private double amount;
-  private String remark;
-  private String phone;
-  private String address;
-  private String userName;
-  private String consignee;
-  private String cancelReason;
-  private String rejectionReason;
-  private java.sql.Timestamp cancelTime;
-  private java.sql.Timestamp estimatedDeliveryTime;
-  private long deliveryStatus;
-  private java.sql.Timestamp deliveryTime;
-  private long packAmount;
-  private long tablewareNumber;
-  private long tablewareStatus;
+    /**
+     * 订单状态 1待付款 2待接单 3已接单 4派送中 5已完成 6已取消
+     */
+    public static final Integer PENDING_PAYMENT = 1;
+    public static final Integer TO_BE_CONFIRMED = 2;
+    public static final Integer CONFIRMED = 3;
+    public static final Integer DELIVERY_IN_PROGRESS = 4;
+    public static final Integer COMPLETED = 5;
+    public static final Integer CANCELLED = 6;
 
+    /**
+     * 支付状态 0未支付 1已支付 2退款
+     */
+    public static final Integer UN_PAID = 0;
+    public static final Integer PAID = 1;
+    public static final Integer REFUND = 2;
 
-  public long getId() {
-    return id;
-  }
+    @Serial
+    private static final long serialVersionUID = 1L;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    private Long id;
 
+    //订单号
+    private String number;
 
-  public String getNumber() {
-    return number;
-  }
+    //订单状态 1待付款 2待接单 3已接单 4派送中 5已完成 6已取消 7退款
+    private Integer status;
 
-  public void setNumber(String number) {
-    this.number = number;
-  }
+    //下单用户id
+    private Long userId;
 
+    //地址id
+    private Long addressBookId;
 
-  public long getStatus() {
-    return status;
-  }
+    //下单时间
+    private LocalDateTime orderTime;
 
-  public void setStatus(long status) {
-    this.status = status;
-  }
+    //结账时间
+    private LocalDateTime checkoutTime;
 
+    //支付方式 1微信，2支付宝
+    private Integer payMethod;
 
-  public long getUserId() {
-    return userId;
-  }
+    //支付状态 0未支付 1已支付 2退款
+    private Integer payStatus;
 
-  public void setUserId(long userId) {
-    this.userId = userId;
-  }
+    //实收金额
+    private BigDecimal amount;
 
+    //备注
+    private String remark;
 
-  public long getAddressBookId() {
-    return addressBookId;
-  }
+    //用户名
+    private String userName;
 
-  public void setAddressBookId(long addressBookId) {
-    this.addressBookId = addressBookId;
-  }
+    //手机号
+    private String phone;
 
+    //地址
+    private String address;
 
-  public java.sql.Timestamp getOrderTime() {
-    return orderTime;
-  }
+    //收货人
+    private String consignee;
 
-  public void setOrderTime(java.sql.Timestamp orderTime) {
-    this.orderTime = orderTime;
-  }
+    //订单取消原因
+    private String cancelReason;
 
+    //订单拒绝原因
+    private String rejectionReason;
 
-  public java.sql.Timestamp getCheckoutTime() {
-    return checkoutTime;
-  }
+    //订单取消时间
+    private LocalDateTime cancelTime;
 
-  public void setCheckoutTime(java.sql.Timestamp checkoutTime) {
-    this.checkoutTime = checkoutTime;
-  }
+    //预计送达时间
+    private LocalDateTime estimatedDeliveryTime;
 
+    //配送状态  1立即送出  0选择具体时间
+    private Integer deliveryStatus;
 
-  public long getPayMethod() {
-    return payMethod;
-  }
+    //送达时间
+    private LocalDateTime deliveryTime;
 
-  public void setPayMethod(long payMethod) {
-    this.payMethod = payMethod;
-  }
+    //打包费
+    private int packAmount;
 
+    //餐具数量
+    private int tablewareNumber;
 
-  public long getPayStatus() {
-    return payStatus;
-  }
-
-  public void setPayStatus(long payStatus) {
-    this.payStatus = payStatus;
-  }
-
-
-  public double getAmount() {
-    return amount;
-  }
-
-  public void setAmount(double amount) {
-    this.amount = amount;
-  }
-
-
-  public String getRemark() {
-    return remark;
-  }
-
-  public void setRemark(String remark) {
-    this.remark = remark;
-  }
-
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public String getAddress() {
-    return address;
-  }
-
-  public void setAddress(String address) {
-    this.address = address;
-  }
-
-
-  public String getUserName() {
-    return userName;
-  }
-
-  public void setUserName(String userName) {
-    this.userName = userName;
-  }
-
-
-  public String getConsignee() {
-    return consignee;
-  }
-
-  public void setConsignee(String consignee) {
-    this.consignee = consignee;
-  }
-
-
-  public String getCancelReason() {
-    return cancelReason;
-  }
-
-  public void setCancelReason(String cancelReason) {
-    this.cancelReason = cancelReason;
-  }
-
-
-  public String getRejectionReason() {
-    return rejectionReason;
-  }
-
-  public void setRejectionReason(String rejectionReason) {
-    this.rejectionReason = rejectionReason;
-  }
-
-
-  public java.sql.Timestamp getCancelTime() {
-    return cancelTime;
-  }
-
-  public void setCancelTime(java.sql.Timestamp cancelTime) {
-    this.cancelTime = cancelTime;
-  }
-
-
-  public java.sql.Timestamp getEstimatedDeliveryTime() {
-    return estimatedDeliveryTime;
-  }
-
-  public void setEstimatedDeliveryTime(java.sql.Timestamp estimatedDeliveryTime) {
-    this.estimatedDeliveryTime = estimatedDeliveryTime;
-  }
-
-
-  public long getDeliveryStatus() {
-    return deliveryStatus;
-  }
-
-  public void setDeliveryStatus(long deliveryStatus) {
-    this.deliveryStatus = deliveryStatus;
-  }
-
-
-  public java.sql.Timestamp getDeliveryTime() {
-    return deliveryTime;
-  }
-
-  public void setDeliveryTime(java.sql.Timestamp deliveryTime) {
-    this.deliveryTime = deliveryTime;
-  }
-
-
-  public long getPackAmount() {
-    return packAmount;
-  }
-
-  public void setPackAmount(long packAmount) {
-    this.packAmount = packAmount;
-  }
-
-
-  public long getTablewareNumber() {
-    return tablewareNumber;
-  }
-
-  public void setTablewareNumber(long tablewareNumber) {
-    this.tablewareNumber = tablewareNumber;
-  }
-
-
-  public long getTablewareStatus() {
-    return tablewareStatus;
-  }
-
-  public void setTablewareStatus(long tablewareStatus) {
-    this.tablewareStatus = tablewareStatus;
-  }
-
+    //餐具数量状态  1按餐量提供  0选择具体数量
+    private Integer tablewareStatus;
 }

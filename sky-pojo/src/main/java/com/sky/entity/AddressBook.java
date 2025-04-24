@@ -1,148 +1,63 @@
 package com.sky.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
- * @author Canyon
+ * 地址簿
  */
-public class AddressBook {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class AddressBook implements Serializable {
 
-  private long id;
-  private long userId;
-  private String consignee;
-  private String sex;
-  private String phone;
-  private String provinceCode;
-  private String provinceName;
-  private String cityCode;
-  private String cityName;
-  private String districtCode;
-  private String districtName;
-  private String detail;
-  private String label;
-  private long isDefault;
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    private Long id;
 
 
-  public long getId() {
-    return id;
-  }
+    private Long userId;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    //收货人
+    private String consignee;
 
+    //手机号
+    private String phone;
 
-  public long getUserId() {
-    return userId;
-  }
+    //性别 0 女 1 男
+    private String sex;
 
-  public void setUserId(long userId) {
-    this.userId = userId;
-  }
+    //省级区划编号
+    private String provinceCode;
 
+    //省级名称
+    private String provinceName;
 
-  public String getConsignee() {
-    return consignee;
-  }
+    //市级区划编号
+    private String cityCode;
 
-  public void setConsignee(String consignee) {
-    this.consignee = consignee;
-  }
+    //市级名称
+    private String cityName;
 
+    //区级区划编号
+    private String districtCode;
 
-  public String getSex() {
-    return sex;
-  }
+    //区级名称
+    private String districtName;
 
-  public void setSex(String sex) {
-    this.sex = sex;
-  }
+    //详细地址
+    private String detail;
 
+    //标签
+    private String label;
 
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public String getProvinceCode() {
-    return provinceCode;
-  }
-
-  public void setProvinceCode(String provinceCode) {
-    this.provinceCode = provinceCode;
-  }
-
-
-  public String getProvinceName() {
-    return provinceName;
-  }
-
-  public void setProvinceName(String provinceName) {
-    this.provinceName = provinceName;
-  }
-
-
-  public String getCityCode() {
-    return cityCode;
-  }
-
-  public void setCityCode(String cityCode) {
-    this.cityCode = cityCode;
-  }
-
-
-  public String getCityName() {
-    return cityName;
-  }
-
-  public void setCityName(String cityName) {
-    this.cityName = cityName;
-  }
-
-
-  public String getDistrictCode() {
-    return districtCode;
-  }
-
-  public void setDistrictCode(String districtCode) {
-    this.districtCode = districtCode;
-  }
-
-
-  public String getDistrictName() {
-    return districtName;
-  }
-
-  public void setDistrictName(String districtName) {
-    this.districtName = districtName;
-  }
-
-
-  public String getDetail() {
-    return detail;
-  }
-
-  public void setDetail(String detail) {
-    this.detail = detail;
-  }
-
-
-  public String getLabel() {
-    return label;
-  }
-
-  public void setLabel(String label) {
-    this.label = label;
-  }
-
-
-  public long getIsDefault() {
-    return isDefault;
-  }
-
-  public void setIsDefault(long isDefault) {
-    this.isDefault = isDefault;
-  }
-
+    //是否默认 0否 1是
+    private Integer isDefault;
 }

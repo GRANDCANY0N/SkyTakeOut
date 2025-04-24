@@ -1,118 +1,52 @@
 package com.sky.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 /**
- * @author Canyon
+ * 套餐
  */
-public class Setmeal {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Setmeal implements Serializable {
 
-  private long id;
-  private long categoryId;
-  private String name;
-  private double price;
-  private long status;
-  private String description;
-  private String image;
-  private java.sql.Timestamp createTime;
-  private java.sql.Timestamp updateTime;
-  private long createUser;
-  private long updateUser;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
+    private Long id;
 
-  public long getId() {
-    return id;
-  }
+    //分类id
+    private Long categoryId;
 
-  public void setId(long id) {
-    this.id = id;
-  }
+    //套餐名称
+    private String name;
 
+    //套餐价格
+    private BigDecimal price;
 
-  public long getCategoryId() {
-    return categoryId;
-  }
+    //状态 0:停用 1:启用
+    private Integer status;
 
-  public void setCategoryId(long categoryId) {
-    this.categoryId = categoryId;
-  }
+    //描述信息
+    private String description;
 
+    //图片
+    private String image;
 
-  public String getName() {
-    return name;
-  }
+    private LocalDateTime createTime;
 
-  public void setName(String name) {
-    this.name = name;
-  }
+    private LocalDateTime updateTime;
 
+    private Long createUser;
 
-  public double getPrice() {
-    return price;
-  }
-
-  public void setPrice(double price) {
-    this.price = price;
-  }
-
-
-  public long getStatus() {
-    return status;
-  }
-
-  public void setStatus(long status) {
-    this.status = status;
-  }
-
-
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
-
-
-  public String getImage() {
-    return image;
-  }
-
-  public void setImage(String image) {
-    this.image = image;
-  }
-
-
-  public java.sql.Timestamp getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(java.sql.Timestamp createTime) {
-    this.createTime = createTime;
-  }
-
-
-  public java.sql.Timestamp getUpdateTime() {
-    return updateTime;
-  }
-
-  public void setUpdateTime(java.sql.Timestamp updateTime) {
-    this.updateTime = updateTime;
-  }
-
-
-  public long getCreateUser() {
-    return createUser;
-  }
-
-  public void setCreateUser(long createUser) {
-    this.createUser = createUser;
-  }
-
-
-  public long getUpdateUser() {
-    return updateUser;
-  }
-
-  public void setUpdateUser(long updateUser) {
-    this.updateUser = updateUser;
-  }
-
+    private Long updateUser;
 }

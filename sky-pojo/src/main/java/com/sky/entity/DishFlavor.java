@@ -1,49 +1,33 @@
 package com.sky.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
+
 /**
- * @author Canyon
+ * 菜品口味
  */
-public class DishFlavor {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class DishFlavor implements Serializable {
 
-  private long id;
-  private long dishId;
-  private String name;
-  private String value;
+    @Serial
+    private static final long serialVersionUID = 1L;
 
+    private Long id;
+    //菜品id
+    private Long dishId;
 
-  public long getId() {
-    return id;
-  }
+    //口味名称
+    private String name;
 
-  public void setId(long id) {
-    this.id = id;
-  }
-
-
-  public long getDishId() {
-    return dishId;
-  }
-
-  public void setDishId(long dishId) {
-    this.dishId = dishId;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public String getValue() {
-    return value;
-  }
-
-  public void setValue(String value) {
-    this.value = value;
-  }
+    //口味数据list
+    private String value;
 
 }

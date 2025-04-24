@@ -1,5 +1,6 @@
 package com.sky.controller.admin;
 
+import ch.qos.logback.core.util.MD5Util;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
@@ -35,8 +36,6 @@ public class EmployeeController {
     private final JwtProperties jwtProperties;
 
     /**
-     * MGZ TODO 2025/4/23：未实现md5加密
-     *
      * @param employeeLoginDTO 前端数据传输对象
      * @return {@link Result }<{@link EmployeeLoginVO }>
      */
