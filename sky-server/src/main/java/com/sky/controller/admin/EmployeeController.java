@@ -1,7 +1,8 @@
 package com.sky.controller.admin;
 
-import ch.qos.logback.core.util.MD5Util;
+
 import com.sky.constant.JwtClaimsConstant;
+import com.sky.dto.EmployeeAddDTO;
 import com.sky.dto.EmployeeLoginDTO;
 import com.sky.entity.Employee;
 import com.sky.properties.JwtProperties;
@@ -62,5 +63,13 @@ public class EmployeeController {
                 .build();
 
         return Result.success(employeeLoginVO);
+    }
+
+
+    @PostMapping("/add")
+    public Result<String> employeeAdd(@RequestBody EmployeeAddDTO employeeAddDTO){
+        employeeService.employeeAdd(employeeAddDTO);
+
+        return Result.success("添加成功！");
     }
 }
