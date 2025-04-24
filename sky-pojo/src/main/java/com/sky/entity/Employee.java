@@ -35,6 +35,9 @@ public class Employee implements Serializable {
 
   private String idNumber;
 
+  /**
+   * 1表示正常 0表示禁用
+   */
   private Integer status;
 
   /**
