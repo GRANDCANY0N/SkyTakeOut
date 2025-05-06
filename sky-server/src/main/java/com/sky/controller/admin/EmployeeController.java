@@ -4,17 +4,16 @@ package com.sky.controller.admin;
 import com.sky.constant.JwtClaimsConstant;
 import com.sky.dto.EmployeeAddDTO;
 import com.sky.dto.EmployeeLoginDTO;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
 import com.sky.properties.JwtProperties;
+import com.sky.result.PageResult;
 import com.sky.service.EmployeeService;
 import com.sky.utils.JwtUtil;
 import com.sky.vo.EmployeeLoginVO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.sky.result.Result;
 
@@ -66,10 +65,24 @@ public class EmployeeController {
     }
 
 
+    /**
+     * @param employeeAddDTO 添加用户DTO
+     * @return {@link Result }<{@link String }>
+     */
     @PostMapping("/add")
     public Result<String> employeeAdd(@RequestBody EmployeeAddDTO employeeAddDTO){
         employeeService.employeeAdd(employeeAddDTO);
 
         return Result.success("添加成功！");
     }
+
+    /**
+     * MGZ TODO 2025/5/6：如果需要按照多个条件进行分页查询，例如姓名+生日，或者前端传递的不是姓名，是其他的参数是否要写新的方法
+     */
+    @GetMapping("/page")
+    public Result<PageResult> page(EmployeePageQueryDTO employeePageQueryDTO){
+        PageResult pageResult = employeeService.pageQuery(employeePageQueryDTO);
+        return Result.success(pageResult);
+    }
+
 }

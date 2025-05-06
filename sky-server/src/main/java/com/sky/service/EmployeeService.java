@@ -2,7 +2,9 @@ package com.sky.service;
 
 import com.sky.dto.EmployeeAddDTO;
 import com.sky.dto.EmployeeLoginDTO;
+import com.sky.dto.EmployeePageQueryDTO;
 import com.sky.entity.Employee;
+import com.sky.result.PageResult;
 
 /**
  * @author Canyon
@@ -20,4 +22,11 @@ public interface EmployeeService {
      * @param employeeAddDTO 前端添加员工数据
      */
     void employeeAdd(EmployeeAddDTO employeeAddDTO);
+
+    /**
+     * 根据姓名分页查询员工
+     * @param employeePageQueryDTO 前端提供的分页数据
+     * @return {@link PageResult }
+     */
+    PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO);
 }
