@@ -34,4 +34,8 @@ public class Result<T> implements Serializable {
         res.msg = msg;
         return res;
     }
+
+    public static <T> Result<T> success() {
+        return success(null);
+    }
 }
